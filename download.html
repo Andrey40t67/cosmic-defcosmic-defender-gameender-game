@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚀 Cosmic Defender - Download Epic Space Shooter Game</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 25%, #16213e 50%, #0f3460 75%, #533483 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+        
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+        
+        .container {
+            position: relative;
+            z-index: 10;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 60px 0;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 20px;
+            margin-bottom: 40px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .game-title {
+            font-size: 4rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #00ffff, #ff00ff, #ffff00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            text-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes glow {
+            from { filter: drop-shadow(0 0 20px rgba(0, 255, 255, 0.5)); }
+            to { filter: drop-shadow(0 0 30px rgba(255, 0, 255, 0.8)); }
+        }
+        
+        .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .description {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+            opacity: 0.8;
+        }
+        
+        .download-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+            margin: 60px 0;
+        }
+        
+        .download-card {
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .download-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: rotate(45deg);
+            transition: all 0.5s;
+            opacity: 0;
+        }
+        
+        .download-card:hover::before {
+            animation: shine 1s ease-in-out;
+        }
+        
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); opacity: 0; }
+        }
+        
+        .download-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(0, 255, 255, 0.5);
+            box-shadow: 0 20px 40px rgba(0, 255, 255, 0.2);
+        }
+        
+        .platform-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+        
+        .platform-name {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        
+        .platform-description {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            opacity: 0.8;
+            line-height: 1.5;
+        }
+        
+        .download-btn {
+            display: inline-block;
+            padding: 15px 40px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .windows-btn {
+            background: linear-gradient(45deg, #0078d4, #106ebe);
+            color: white;
+            border-color: #0078d4;
+        }
+        
+        .windows-btn:hover {
+            background: linear-gradient(45deg, #106ebe, #005a9e);
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(0, 120, 212, 0.4);
+        }
+        
+        .android-btn {
+            background: linear-gradient(45deg, #3ddc84, #00c851);
+            color: white;
+            border-color: #3ddc84;
+        }
+        
+        .android-btn:hover {
+            background: linear-gradient(45deg, #00c851, #007e33);
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(61, 220, 132, 0.4);
+        }
+        
+        .features {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 60px 0;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .features h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            background: linear-gradient(45deg, #00ffff, #ff00ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-item {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        .feature-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .feature-description {
+            opacity: 0.8;
+            line-height: 1.5;
+        }
+        
+        .system-requirements {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
+        }
+        
+        .requirements-card {
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 15px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .requirements-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #00ffff;
+        }
+        
+        .requirements-list {
+            list-style: none;
+        }
+        
+        .requirements-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .requirements-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .credits {
+            text-align: center;
+            padding: 40px 0;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 15px;
+            margin-top: 60px;
+        }
+        
+        .credits h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #ffff00;
+        }
+        
+        .credits p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .warning {
+            background: rgba(255, 165, 0, 0.2);
+            border: 2px solid rgba(255, 165, 0, 0.5);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 30px 0;
+            text-align: center;
+        }
+        
+        .warning h3 {
+            color: #ffa500;
+            margin-bottom: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .game-title {
+                font-size: 2.5rem;
+            }
+            
+            .download-section {
+                grid-template-columns: 1fr;
+            }
+            
+            .download-card {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="stars" id="stars"></div>
+    
+    <div class="container">
+        <header>
+            <h1 class="game-title">🚀 COSMIC DEFENDER</h1>
+            <p class="subtitle">Epic Space Shooter Game</p>
+            <p class="description">
+                Experience the ultimate space combat adventure! Battle through waves of alien invaders, 
+                upgrade your ship, and defend the galaxy in this action-packed shooter with tower defense elements. 
+                Features stunning graphics, intense gameplay, and progressive difficulty that will keep you engaged for hours.
+            </p>
+        </header>
+        
+        <section class="download-section">
+            <div class="download-card">
+                <span class="platform-icon">🖥️</span>
+                <h2 class="platform-name">Windows PC</h2>
+                <p class="platform-description">
+                    Full-featured desktop version with high-resolution graphics, 
+                    keyboard and mouse controls, and optimized performance for Windows 10/11.
+                </p>
+                <a href="#" class="download-btn windows-btn" onclick="downloadWindows()">
+                    Download .EXE
+                </a>
+            </div>
+            
+            <div class="download-card">
+                <span class="platform-icon">📱</span>
+                <h2 class="platform-name">Android Mobile</h2>
+                <p class="platform-description">
+                    Mobile-optimized version with touch controls, 
+                    perfect for gaming on the go. Compatible with Android 7.0+.
+                </p>
+                <a href="#" class="download-btn android-btn" onclick="downloadAndroid()">
+                    Download .APK
+                </a>
+            </div>
+        </section>
+        
+        <div class="warning">
+            <h3>⚠️ Installation Instructions</h3>
+            <p><strong>Windows:</strong> Download the .exe file and run as administrator. Windows Defender may show a warning - click "More info" then "Run anyway".</p>
+            <p><strong>Android:</strong> Enable "Install from unknown sources" in Settings > Security, then install the .apk file.</p>
+        </div>
+        
+        <section class="features">
+            <h2>🎮 Game Features</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <span class="feature-icon">🚀</span>
+                    <h3 class="feature-title">Epic Space Combat</h3>
+                    <p class="feature-description">Intense battles with multiple enemy types and boss fights</p>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">⚡</span>
+                    <h3 class="feature-title">Power-Up System</h3>
+                    <p class="feature-description">Collect upgrades to enhance your ship's capabilities</p>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">🎯</span>
+                    <h3 class="feature-title">Progressive Difficulty</h3>
+                    <p class="feature-description">Challenging levels that adapt to your skill level</p>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">💥</span>
+                    <h3 class="feature-title">Particle Effects</h3>
+                    <p class="feature-description">Stunning visual effects and explosions</p>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">🏆</span>
+                    <h3 class="feature-title">Score System</h3>
+                    <p class="feature-description">Compete for high scores and achievements</p>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">🎵</span>
+                    <h3 class="feature-title">Immersive Audio</h3>
+                    <p class="feature-description">Dynamic sound effects and background music</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="system-requirements">
+            <div class="requirements-card">
+                <h3>🖥️ Windows Requirements</h3>
+                <ul class="requirements-list">
+                    <li><strong>OS:</strong> Windows 10/11 (64-bit)</li>
+                    <li><strong>Processor:</strong> Intel Core i3 or AMD equivalent</li>
+                    <li><strong>Memory:</strong> 4 GB RAM</li>
+                    <li><strong>Graphics:</strong> DirectX 11 compatible</li>
+                    <li><strong>Storage:</strong> 100 MB available space</li>
+                    <li><strong>Additional:</strong> Python 3.8+ (auto-installed)</li>
+                </ul>
+            </div>
+            
+            <div class="requirements-card">
+                <h3>📱 Android Requirements</h3>
+                <ul class="requirements-list">
+                    <li><strong>OS:</strong> Android 7.0 (API level 24) or higher</li>
+                    <li><strong>RAM:</strong> 2 GB minimum, 4 GB recommended</li>
+                    <li><strong>Storage:</strong> 50 MB available space</li>
+                    <li><strong>Processor:</strong> ARM64 or x86_64</li>
+                    <li><strong>Graphics:</strong> OpenGL ES 2.0 support</li>
+                    <li><strong>Additional:</strong> Touch screen support</li>
+                </ul>
+            </div>
+        </section>
+        
+        <section class="credits">
+            <h2>👨‍💻 Created by AndreyVV</h2>
+            <p>Professional game development with passion for creating engaging experiences.</p>
+            <p>This game represents hours of careful coding, testing, and optimization to deliver the best possible gaming experience.</p>
+        </section>
+    </div>
+    
+    <script>
+        // Create animated stars background
+        function createStars() {
+            const starsContainer = document.getElementById('stars');
+            const numberOfStars = 150;
+            
+            for (let i = 0; i < numberOfStars; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animationDelay = Math.random() * 3 + 's';
+                star.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                starsContainer.appendChild(star);
+            }
+        }
+        
+        // Download functions
+        function downloadWindows() {
+            alert('🚀 Windows Download Started!\\n\\nThe CosmicDefender.exe file will be ready soon.\\n\\nFor now, you can access the source code and build instructions in the repository.\\n\\nTo build:\\n1. Download cosmic_defender_game.py\\n2. Install Python 3.8+\\n3. pip install pygame cx-freeze\\n4. Run: python build_windows.py build');
+        }
+        
+        function downloadAndroid() {
+            alert('📱 Android Download Started!\\n\\nThe CosmicDefender.apk file will be ready soon.\\n\\nFor now, you can access the source code and build instructions in the repository.\\n\\nTo build:\\n1. Download cosmic_defender_game.py\\n2. Install buildozer\\n3. Run: buildozer android debug');
+        }
+        
+        // Initialize stars when page loads
+        window.addEventListener('load', createStars);
+        
+        // Add some interactive effects
+        document.addEventListener('mousemove', function(e) {
+            const cursor = document.createElement('div');
+            cursor.style.position = 'fixed';
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+            cursor.style.width = '4px';
+            cursor.style.height = '4px';
+            cursor.style.background = 'rgba(0, 255, 255, 0.6)';
+            cursor.style.borderRadius = '50%';
+            cursor.style.pointerEvents = 'none';
+            cursor.style.zIndex = '9999';
+            cursor.style.animation = 'fade-out 1s ease-out forwards';
+            
+            document.body.appendChild(cursor);
+            
+            setTimeout(() => {
+                if (cursor.parentNode) {
+                    cursor.parentNode.removeChild(cursor);
+                }
+            }, 1000);
+        });
+        
+        // Add fade-out animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fade-out {
+                0% { opacity: 1; transform: scale(1); }
+                100% { opacity: 0; transform: scale(0); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
